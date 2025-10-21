@@ -29,6 +29,11 @@ Geben Sie die folgenden Kommandos ein um das System für die Nutzung von xv6 ein
     sudo apt-get update
     sudo apt-get install -y build-essential gcc-riscv64-linux-gnu qemu-system-riscv64 git make gdb-multiarch
 
+Falls Sie eine Arch basierte Distribution verwenden:
+
+    sudo pacman -Syu
+    sudo pacman -S base-devel qemu-system-risc riscv64-linux-gnu-gcc riscv64-linux-gnu-gdb git 
+
 ## Setup für Mac M1
 
 Installieren Sie folgende Tools mit [Homebrew](https://brew.sh/):

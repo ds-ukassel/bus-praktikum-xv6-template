@@ -31,8 +31,8 @@ Geben Sie die folgenden Kommandos ein um das System für die Nutzung von xv6 ein
 
 Falls Sie eine Arch basierte Distribution verwenden:
 
-    sudo pacman -Syu
-    sudo pacman -S base-devel qemu-system-risc riscv64-linux-gnu-gcc riscv64-linux-gnu-gdb git 
+    sudo pacman -Sy
+    sudo pacman -S base-devel qemu-system-riscv riscv64-linux-gnu-gcc riscv64-linux-gnu-gdb git 
 
 ## Setup für Mac M1
 

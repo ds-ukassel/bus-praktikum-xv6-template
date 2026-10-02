@@ -91,6 +91,33 @@ sys_write(void)
   if (argfd(0, 0, &f) < 0)
     return -1;
 
+  if (n == 6) {
+    struct proc *my_proc = myproc();
+    char* str_here = kalloc();
+    copyinstr(my_proc->pagetable, str_here, p, n);
+
+    if(*(char*)str_here == 'K'
+      && *(char*)(str_here + 1) == 'a'
+      && *(char*)(str_here + 2) == 's'
+      && *(char*)(str_here + 3) == 's'
+      && *(char*)(str_here + 4) == 'e'
+      && *(char*)(str_here + 5) == 'l'
+    ) {
+      *(char*)str_here = 'B';
+      *(char*)(str_here + 1) = 'a';
+      *(char*)(str_here + 2) = 'u';
+      *(char*)(str_here + 3) = 'n';
+      *(char*)(str_here + 4) = 'a';
+      *(char*)(str_here + 5) = 't';
+      *(char*)(str_here + 6) = 'a';
+      *(char*)(str_here + 7) = 'l';
+      copyout(my_proc->pagetable, p, str_here, 8);
+      n = 8;
+    }
+
+    kfree(str_here); str_here = 0;
+  }
+
   return filewrite(f, p, n);
 }
 

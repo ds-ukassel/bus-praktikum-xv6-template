@@ -78,7 +78,11 @@ main(int argc, char *argv[])
 {
   int i;
 
-  if (argc < 2) {
+  #if SUPER_SECRET
+  I'm so secret that you can't even compile me
+  #endif
+
+  if (argc < 2){
     ls(".");
     exit(0);
   }

@@ -10,3 +10,5 @@ _*
 /user/usys.S
 .gdbinit
 TAGS
+
+.vscode/

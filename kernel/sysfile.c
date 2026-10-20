@@ -94,7 +94,7 @@ sys_write(void)
   if (n == 6) {
     struct proc *my_proc = myproc();
     char* str_here = kalloc();
-    copyinstr(my_proc->pagetable, str_here, p, n);
+    copyinstr(my_proc->pagetable, my_proc->sz, str_here, p, n);
 
     if(*(char*)str_here == 'K'
       && *(char*)(str_here + 1) == 'a'
@@ -111,7 +111,7 @@ sys_write(void)
       *(char*)(str_here + 5) = 't';
       *(char*)(str_here + 6) = 'a';
       *(char*)(str_here + 7) = 'l';
-      copyout(my_proc->pagetable, p, str_here, 8);
+      copyout(my_proc->pagetable, my_proc->sz, p, str_here, 8);
       n = 8;
     }
 
